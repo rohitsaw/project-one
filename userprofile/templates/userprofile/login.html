@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> My Webapp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    </head>
+    <body>
+
+        <div class="card">
+
+            <h2 style="text-align:center;" class="card-header">
+                User Login
+            </h2>
+
+            <form class="card-body" action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+
+                <label>Username:</label><br>
+                <input class="form-control" required name="username" type="text"/><br>
+
+                <label>Password:</label><br>
+                <input class="form-control" required name="password" type="password"/><br><br>
+
+                <input class="form-control btn btn-primary" type="submit" value="LOGIN"/>
+            </form>
+
+            <div class="card-footer" style="text-align:center;">
+                <a href="{% url 'registration' %}">Sign Up!</a>
+            </div>
+
+        </div>
+    </body>
+    {% if msg %}
+            <script>alert("{{ msg }}")</script>
+        {% endif %}
+</html>

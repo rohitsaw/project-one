@@ -4,35 +4,12 @@
   justify-content: center;
   margin-bottom:10px;
 }
-#main_heading{
-  animation-name: move 3s;
-    -webkit-animation: move 3s;
-    -webkit-animation-iteration-count: infinite;
-
-}
-@-webkit-keyframes move {
-  from {
-    margin-right: 0%;
-    width: 300%;
-  }
-
-  to {
-    margin-right: 100%;
-    width: 100%;
-  }
-}
-
-/* @keyframes move {
-  from {
-    margin-left: 100%;
-    width: 300%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
+/* .mainheading{
+  text-align: center;
+  justify-content: center;
+  margin-bottom:10px;
 } */
+
 
 textarea {
   width: 100%;

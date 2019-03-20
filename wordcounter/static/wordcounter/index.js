@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  swal("Welcome to Word Counter", "ok to continue!", "info");
   $(".btn").click(function(){
     const text = $("textarea").val()
     if (text.length > 0){
@@ -23,6 +24,7 @@ $(document).ready(function(){
       $(".total_word").text(0)
       $(".total_character").text(0)
       $(".most_frequent").text("None")
+      swal("Text field is empty"," ","error")
     }
   })
 });

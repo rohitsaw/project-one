@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Edit</title>
+        <title>Edit Profile</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <style>
+        .heading{
+            margin-top:15px;
+            font-family: 'Chicle',cursive;
+            font-size: 2em;
+            font-style: italic;
+          }
+
+        </style>
+    </head>
+    <body>
+      {% load static %}
+
+        <div class="card" style="background-color:cyan;">
+          <h3 class="heading text-center">your unique username is {{ user.username }}</h3>
+
+
+
+        <form class="card-body container-fluid" style="" action="{% url 'edit' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-3 col-sm-12" style="">
+
+                  <div class="card" style="margin-top:2.5em;">
+                    {% if user.myuser.photo %}
+                      <img id="image" src="{{ user.myuser.photo.url }}" alt="can't loaded" width="100%;">
+                    {% else %}
+                      <img id="image" src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif" alt="can't loaded" width="100%;">
+                    {% endif %}
+                  </div>
+
+                  <div class="card-footer" >
+                    <input onchange="loadFile(event)" style="background-color:cyan;" class="form-control btn btn-warning" type="file" name="photo" accept="image/*">
+                  </div>
+
+                </div>
+
+                <div class="col-lg-9 col-sm-12">
+                    <div class="row form-group" style="margin-bottom:20px;">
+                      <div class="col-lg-6 col-sm-12" style="padding:10px;">
+                        <label class="label label-primary">Name:</label>
+                        <input required rows="1" class="form-control" name="name" type="text" value="{{myuser.name }}">
+                      </div>
+                        <div class="col-lg-6 col-sm-12" style="padding:10px;">
+                          <label class="label label-primary">Qualification:</label>
+                          <input rows="1" class="form-control" name="qualification" type="text" value="{{ myuser.qualification }}">
+                        </div>
+
+
+                    </div>
+                    <div class="row form-group">
+                            <div class="col-sm-12 col-lg-6" style="padding:10px;">
+                                    <label class="label label-primary">Date of birth:</label>
+                                    <input required rows="1" class="form-control" name="dob" type="date" value="{{myuser.dob|date:"Y-m-d" }}">
+                            </div>
+                        <div class="col-sm-12 col-lg-6" style="padding:10px;">
+                                <label class="label label-primary">Email:</label>
+                                <input rows="1" class="form-control" name="email" type="Email" value="{{ user.email }}">
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-sm-12" style="margin: 0 auto;">
+                            <label class="label label-primary">Short Bio:</label>
+                            <textarea class="form-control" name="bio" placeholder="Type something about you!" type="text">{{myuser.bio}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <button class="btn btn-warning" style="margin: 0 auto;" type = "submit">Save changes!</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+                <div class="card-footer">
+
+                <form style="float:right;" method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                <button class="btn btn-outline-danger" style="">Log out!</button>
+                </form>
+
+                <div style="float:left;" >
+                <a href="{% url 'index' %}" class="btn btn-outline-danger" style="">Go back!</a>
+                </div>
+
+                </div>
+        </div>
+        <script>
+            var loadFile = function(event) {
+            var output = document.getElementById('image');
+            output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
+    </body>
+</html>
