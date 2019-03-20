@@ -24,7 +24,7 @@
 
 
 
-        <form class="card-body container-fluid" style="" action="{% url 'edit' %}" method="post" enctype="multipart/form-data">
+        <form class="card-body container-fluid" style="" action="{% url 'userprofile:edit' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
             <div class="row">
                 <div class="col-lg-3 col-sm-12" style="">
@@ -88,13 +88,13 @@
 
                 <div class="card-footer">
 
-                <form style="float:right;" method="post" action="{% url 'logout' %}">
+                <form style="float:right;" method="post" action="{% url 'userprofile:logout' %}">
                   {% csrf_token %}
                 <button class="btn btn-outline-danger" style="">Log out!</button>
                 </form>
 
                 <div style="float:left;" >
-                <a href="{% url 'index' %}" class="btn btn-outline-danger" style="">Go back!</a>
+                <a href="{% url 'userprofile:index' %}" class="btn btn-outline-danger" style="">Go back!</a>
                 </div>
 
                 </div>

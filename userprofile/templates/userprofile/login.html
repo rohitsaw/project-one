@@ -14,7 +14,7 @@
                 User Login
             </h2>
 
-            <form class="card-body" action="{% url 'login' %}" method="post">
+            <form class="card-body" action="{% url 'userprofile:login' %}" method="post">
                 {% csrf_token %}
 
                 <label>Username:</label><br>
@@ -27,7 +27,7 @@
             </form>
 
             <div class="card-footer" style="text-align:center;">
-                <a href="{% url 'registration' %}">Sign Up!</a>
+                <a href="{% url 'userprofile:registration' %}">Sign Up!</a>
             </div>
 
         </div>

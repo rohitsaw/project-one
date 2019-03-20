@@ -13,7 +13,7 @@
             {% else %}
             <h2 class="card-header" style="text-align:center;">After Successful registration redirect to login page!</h2>
             {% endif %}
-            <form class="card-body" action="{% url 'registration' %}" method="post">
+            <form class="card-body" action="{% url 'userprofile:registration' %}" method="post">
                 {% csrf_token %}
                 <label>Username:</label><br>
                 <input class="form-control" required name="username" type="text"/><br>
@@ -27,7 +27,7 @@
                 <input class="form-control btn btn-primary" type="submit" value="Sign Up"/>
             </form>
                 <div class="card-footer" style="text-align:center;">
-                    <a href="{% url 'index' %}">Log In!</a>
+                    <a href="{% url 'userprofile:index' %}">Log In!</a>
                 </div>
         </div>
     </body>

@@ -34,19 +34,19 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             #index(request)
-            return HttpResponseRedirect(reverse("index"))
+            return HttpResponseRedirect(reverse("userprofile:index"))
         return render(request, "userprofile/login.html", {"msg":"Invalid Credentials"})
     return render(request, "userprofile/login.html", {"msg":"Something went wrong"})
 
 def logout(request):
     if (request.method=="POST") and (request.user.is_authenticated):
         auth_logout(request)
-    return HttpResponseRedirect(reverse("index"))
+    return HttpResponseRedirect(reverse("userprofile:index"))
 
 def registration(request):
     if request.method=="POST":
         if request.user.is_authenticated:
-            return HttpResponseRedirect(reverse("index"))
+            return HttpResponseRedirect(reverse("userprofile:index"))
         username = request.POST["username"]
         password = request.POST["password"]
         email = request.POST["email"]
@@ -57,13 +57,13 @@ def registration(request):
             user.save()
             # myuser = Myuser(user = user)
             # myuser.save()
-            return HttpResponseRedirect(reverse("index"))
+            return HttpResponseRedirect(reverse("userprofile:index"))
         return render(request, "userprofile/registration.html", {"msg":"Username already exist."})
     return render(request, "userprofile/registration.html")
 
 def edit(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(reverse("userprofile:index"))
     if request.method == "POST":
         try:
             myuser = Myuser.objects.get(user = request.user)
@@ -82,7 +82,7 @@ def edit(request):
             myuser.photo = request.FILES['photo']
         myuser.save()
         #print(request.user.myuser.key)
-        return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(reverse("userprofile:index"))
     if request.method == "GET":
         try:
             myuser = Myuser.objects.get(user = request.user)

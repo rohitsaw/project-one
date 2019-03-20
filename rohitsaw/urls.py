@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('wordcounter/', include('wordcounter.urls')),
     path('profile/', include('userprofile.urls')),
+    #path('notes/', include('noteapp.urls')),
 ]

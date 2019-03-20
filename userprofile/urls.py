@@ -3,6 +3,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 
+app_name = 'userprofile'
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.login, name='login'),
