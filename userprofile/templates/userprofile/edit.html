@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +19,6 @@
         </style>
     </head>
     <body>
-      {% load static %}
 
         <div class="card" style="background-color:cyan;">
           <h3 class="heading text-center">your unique username is {{ user.username }}</h3>
@@ -31,7 +32,7 @@
 
                   <div class="card" style="margin-top:2.5em;">
                     {% if user.myuser.photo %}
-                      <img id="image" src="{{ user.myuser.photo.url }}" alt="can't loaded" width="100%;">
+                      <img id="image" src="{{ myuser.photo.url }}" alt="can't loaded" width="100%;">
                     {% else %}
                       <img id="image" src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif" alt="can't loaded" width="100%;">
                     {% endif %}

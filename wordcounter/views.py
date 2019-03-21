@@ -6,6 +6,10 @@ import operator
 def index(request):
     return render(request, "wordcounter/index.html")
 
+
+def homepage(request):
+    return render(request, "wordcounter/homepage.html")
+
 def count(request):
     temp = request.GET.get("text", None)
     lcount = len(temp)

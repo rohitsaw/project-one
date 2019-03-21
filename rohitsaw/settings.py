@@ -130,10 +130,7 @@ USE_TZ = True
 #     os.path.join(BASE_DIR, 'userprofile/media'),
 # ]
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media/myapp/photo')
-STATIC_URL = '/static/'
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'userprofile/media')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'userprofile/media'),
-]
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -87,6 +87,7 @@ def edit(request):
         try:
             myuser = Myuser.objects.get(user = request.user)
             context = {'myuser': myuser}
+            print("-------------------------------")
         except Myuser.DoesNotExist:
-            context = {'user': request.user}
+            context = {'myuser': request.user}
     return render(request, "userprofile/edit.html", context)

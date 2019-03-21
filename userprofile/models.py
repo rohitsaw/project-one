@@ -11,7 +11,7 @@ class Myuser(models.Model):
     email = models.CharField(max_length=20, blank=True)
     dob = models.DateField(max_length=8, blank=True, auto_now_add=True)
     bio = models.CharField(max_length=100, blank=True)
-    photo = models.ImageField(upload_to="profile_image", blank=True)
+    photo = models.ImageField(upload_to="userprofile/profile_image/", blank=True)
     qualification = models.CharField(max_length=64, blank=True)
 
     def __str__(self):
