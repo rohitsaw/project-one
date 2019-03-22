@@ -13,10 +13,14 @@ def homepage(request):
         'login' : False,
         }
     else:
+        try:
+            myuser = Myuser.objects.get(user=request.user)
+        except Myuser.DoesNotExist:
+            myuser = request.user
         context = {
         'login' : True,
-        'myuser': Myuser.objects.get(user=request.user),
-        'user' : request.user
+        'myuser': myuser
+        #'user' : request.user
         }
     return render(request, "wordcounter/homepage.html", context)
 

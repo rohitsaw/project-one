@@ -1,5 +1,12 @@
 # project One
 
+## I have deployed this app to
+
+https://project-one-rohitsaw.herokuapp.com/
+
+### url loading may take some time because of using free service of heroku
+
+
 *In this project I'm trying to integrate some small app into one django project.*
 
 There are currently three app in this project.
@@ -16,6 +23,7 @@ There are currently three app in this project.
           * notes can be access from different device after login.
           * each note is stored with timestamp.
           * you can always delete your notes.
+
 
 ## Run in local host
 
