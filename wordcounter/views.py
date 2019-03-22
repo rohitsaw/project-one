@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
-import operator
+from userprofile.models import Myuser
 
 # Create your views here.
 def index(request):
@@ -8,7 +8,17 @@ def index(request):
 
 
 def homepage(request):
-    return render(request, "wordcounter/homepage.html")
+    if not request.user.is_authenticated:
+        context = {
+        'login' : False,
+        }
+    else:
+        context = {
+        'login' : True,
+        'myuser': Myuser.objects.get(user=request.user),
+        'user' : request.user
+        }
+    return render(request, "wordcounter/homepage.html", context)
 
 def count(request):
     temp = request.GET.get("text", None)

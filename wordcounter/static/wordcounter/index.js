@@ -1,6 +1,6 @@
 $(document).ready(function(){
   swal("Welcome to Word Counter", "ok to continue!", "info");
-  $(".btn").click(function(){
+  $(".sbtn").click(function(){
     const text = $("textarea").val()
     if (text.length > 0){
       // alert("ready to ajax")

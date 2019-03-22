@@ -34,14 +34,14 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             #index(request)
-            return HttpResponseRedirect(reverse("userprofile:index"))
+            return HttpResponseRedirect(reverse("home:homepage"))
         return render(request, "userprofile/login.html", {"msg":"Invalid Credentials"})
-    return render(request, "userprofile/login.html", {"msg":"Something went wrong"})
+    return render(request, "userprofile/login.html")
 
 def logout(request):
-    if (request.method=="POST") and (request.user.is_authenticated):
+    if (request.user.is_authenticated):
         auth_logout(request)
-    return HttpResponseRedirect(reverse("userprofile:index"))
+    return HttpResponseRedirect(reverse("home:homepage"))
 
 def registration(request):
     if request.method=="POST":
