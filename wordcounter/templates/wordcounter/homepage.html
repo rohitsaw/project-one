@@ -20,12 +20,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type = "text/JavaScript" src="{% static 'wordcounter/homepage.js' %}"></script>
 
+    <!-- Link for font awesome library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+
   </head>
-  <body>
+<body>
 
-
-<!-- nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -->
-
+<!-- starting side nav bar -->
 <ul id="slide-out" class="sidenav">
   {% if login %}
       <li>
@@ -61,7 +62,29 @@
     <li><a href="{% url 'userprofile:index' %}">Profile!</a></li>
   {% endif %}
 </ul>
-<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+<!-- ending side nav bar -->
 
-  </body>
+
+  <nav class="teal lighten-3">
+    <div class=" row nav-wrapper">
+      <div class="col s6">
+          <span style="display:absolute;top:2px;left:35%;" class="brand-logo">Project One</span>
+      </div>
+      <div class="col s6">
+        <ul id="nav-mobile" class="right ">
+            <li><a href="https://github.com/rohitsaw" style="color: #893be8;" target="_blank">
+                <i class="fa fa-github fa-2x contact-logo github"></i>
+            </li></a>
+            <li><a href="https://www.linkedin.com/in/rohit-saw-2ab67180/" style="color: #893be8;" target="_blank">
+                <i class="fa fa-linkedin fa-2x contact-logo linkedin"></i>
+            </li></a>
+            <li><a href="https://www.facebook.com/rohit.saw.106/" style="color:#893be8;" target="_blank">
+                <i class="fa fa-facebook fa-2x contact-logo facebook"></i>
+            </li></a>
+        </ul>
+    </div>
+  </nav>
+  <a style="position:absolute;top:20px;left:15px;" data-target="slide-out" class="sidenav-trigger"><i style="color:#893be8;" class="material-icons">menu</i></span></a>
+
+</body>
 </html>

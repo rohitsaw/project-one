@@ -1,19 +1,19 @@
 $(document).ready(function(){
   swal("Welcome to Word Counter", "ok to continue!", "info");
-  $(".sbtn").click(function(){
+  $("#count-button").click(function(){
     const text = $("textarea").val()
     if (text.length > 0){
       // alert("ready to ajax")
       $.ajax(
         {
-          url: "count",
+          url: "/count/",
           data: {
             text: text,
           },
           dataType: 'json',
           success : function(data){
               // alert(`success ${data}`)
-              console.log(data.most_frequent_word)
+              //console.log(data.most_frequent_word)
               $(".total_word").text(data.word_count)
               $(".total_character").text(data.letter_count)
               $(".most_frequent").text(data.most_frequent_word)

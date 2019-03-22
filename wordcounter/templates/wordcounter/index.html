@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'wordcounter/index.css' %}"/>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{% static 'wordcounter/index.js' %}"></script>
+    <script type="text/javascript" src="{% static 'wordcounter/index.js' %}"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
@@ -20,19 +20,20 @@
             <h1 class="text-center txt-shadow" style="text-shadow: -1px 2px 6px rgba(150, 150, 150, 1);font-size: 5em;word-spacing: 0.3em;">Word Counter</h1>
         </div>
 
-        <div class="col-sm-6 col-lg-2 text-center" style="margin-bottom:15px;font-family: 'Chicle', cursive;font-size: 2.5em;" class="text-center">
-          <a href="{% url 'home:homepage' %}" style="margin-top:15%;" class="btn btn-primary">Home Page!</a>
+        <div class="col-6 col-lg-2 text-center">
+          <a href="{% url 'home:homepage' %}" style="margin-top:15%;margin-left:10px;" class="btn btn-primary">Home Page!</a>
         </div>
 
-        <div class="col-sm-6 col-lg-2 text-center" style="margin-bottom:15px;font-family: 'Chicle', cursive;font-size: 2.5em;" class="text-center">
-          <a href="{% url 'userprofile:index' %}" style="margin-top:15%;" class="btn btn-primary">Profile</a>
+        <div class="col-6 col-lg-2 text-center">
+          <a href="{% url 'userprofile:index' %}" style="margin-top:15%;margin-right:10px;" class="btn btn-primary">Profile</a>
         </div>
 
       </div>
+
       <div class="row">
         <div class="col-md-8">
             <textarea placeholder="Start typing, or copy and paste your document here.." rows="10"></textarea>
-            <button class="sbtn btn btn-primary">Count</button>
+            <button id="count-button" class="btn btn-primary" style="margin-left:43%;">Count</button>
         </div>
         <div class="card col-md-4">
           <div class="card-header">
