@@ -1,0 +1,65 @@
+{% load static %}
+
+<!Doctype html>
+<html>
+  <head>
+
+    <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type = "text/JavaScript" src="{% static 'wordcounter/homepage.js' %}"></script>
+
+    {% block head %}
+
+    {% endblock %}
+  </head>
+  <body>
+    <!-- starting side nav bar -->
+    <ul id="slide-out" class="sidenav">
+      {% if login %}
+          <li>
+            <div class="user-view">
+              <div>
+                {% if myuser.photo %}
+                  <img class="circle" src="{{ myuser.photo.url }}" style="width:100%;height:auto;">
+                {% else %}
+                  <img class="circle" style="width:100%;height:auto;" src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif" alt="can't loaded">
+                {% endif %}
+              </div>
+              <a><span class="black-text name">{{ myuser.name }}</span></a>
+              <a><span class="black-text email">{{ myuser.email }}</span></a>
+            </div>
+      {% else %}
+          <div class="user-view">
+            <div>
+              <img class="circle" style="width:100%;height:auto;" src="https://heatherchristenaschmidt.files.wordpress.com/2011/09/facebook_no_profile_pic2-jpg.gif" alt="can't loaded">
+            </div>
+          </div>
+        <li><a class=" card-penel blue-text text-darken-2" href="{% url 'userprofile:login' %}">Log In</a></li>
+      {% endif %}
+      </li>
+      <li><a class="subheader">All Projects</a></li>
+      <li><a href="{% url 'home:wordcounter' %}">Word Counter!</a></li>
+      <li><a href="{% url 'noteapp:index' %}">NoteApp</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Profile-section</a></li>
+      {% if login %}
+        <li><a href="{% url 'userprofile:index' %}">Profile!</a></li>
+        <li><a href="{% url 'userprofile:logout' %}">Log out</a></li>
+      {% else %}
+        <li><a href="{% url 'userprofile:index' %}">Profile!</a></li>
+      {% endif %}
+    </ul>
+
+    <a style="position:absolute;top:20px;left:15px;" data-target="slide-out" class="sidenav-trigger"><i style="color:#893be8;" class="material-icons">menu</i></span></a>
+
+    <!-- ending side nav bar -->
+    {% block body %}
+
+    {% endblock %}
+</body>
+</html>
