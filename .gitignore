@@ -3,7 +3,7 @@
 *.pot
 *.pyc
 __pycache__/
-profile_image/
+/media/userprofile/profile_image/
 local_settings.py
 
 .env
