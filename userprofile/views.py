@@ -79,6 +79,7 @@ def edit(request):
         myuser.bio = request.POST['bio']
         myuser.qualification = request.POST['qualification']
         if 'photo' in request.FILES.keys():
+            myuser.photo.delete(False)
             myuser.photo = request.FILES['photo']
         myuser.save()
         #print(request.user.myuser.key)
